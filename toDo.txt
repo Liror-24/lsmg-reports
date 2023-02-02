@@ -1,10 +1,10 @@
 -Report Date X DONE
--Doctors database
--Patients database
--Type of item
--List of injuries/Aftercare bullet points (able to delete)
--Modifyable text boxes
--Read info form
--Output
+-Doctors database X DONE
+-Patients database X DONE
+-Type of item X
+-List of injuries/Aftercare bullet points (able to delete) X
+-Modifyable text boxes X
+-Read info form X
+-Output X
 -Styling
--Emergency Contacts
+-Emergency Contacts X

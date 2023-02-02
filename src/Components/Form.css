@@ -1,0 +1,6 @@
+input {
+    resize: both;
+    overflow-x: hidden;
+    resize: horizontal;
+    display: inline-block;
+}
