@@ -1,5 +1,8 @@
 .boxOutput {
-    background-color: #4b5261;
+    background-color: #3a3948;
     margin: 10px;
     text-align: left;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 25px;
 }

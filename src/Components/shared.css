@@ -1,5 +1,12 @@
 .Wrapper {
     /* display: inline;
     width: 48%; */
-    flex: 50%;
+    flex: 45%;
+    padding: 0 10px;
+    text-align: left;
+}
+
+.Wrapper h3 {
+    color: #086F63;
+    font-size: 26px;
 }

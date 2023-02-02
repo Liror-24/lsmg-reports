@@ -1,6 +1,31 @@
-input {
-    resize: both;
-    overflow-x: hidden;
-    resize: horizontal;
-    display: inline-block;
+.wrapperItem {
+    margin: 16px 0;
 }
+
+.boxTitle {
+    margin: 8px 0;
+    font-size: 18px;
+}
+
+input {
+    /* overflow-x: hidden; */
+    /* resize: horizontal;
+    display: inline-block; */
+    font-size: 16px;
+    line-height: 34px;
+    width: 95%;
+    border-radius: 5px;
+    border-style: hidden;
+    padding-left: 10px;
+}
+
+textarea {
+    width: 95%;
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 20px;
+    font-family:Arial, Helvetica, sans-serif;
+    padding: 5px 10px;
+    resize: vertical;
+}
+

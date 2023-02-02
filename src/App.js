@@ -6,9 +6,9 @@ import Output from './Components/Output';
 function getStringDate() {
   const now = new Date().toLocaleString("en-US", { timeZone: 'America/New_York' });
   const current = new Date(now);
-  let aux = `${current.getFullYear()}-`;//${current.getMonth() + 1}-${current.getDate()}`;
+  let aux = `${current.getFullYear()}/`;
   if (current.getMonth() < 9) aux += '0';
-  aux += `${current.getMonth() + 1}-`;
+  aux += `${current.getMonth() + 1}/`;
   if (current.getDate() < 10) aux += '0';
   aux += `${current.getDate()}`;
   return aux;
@@ -37,15 +37,16 @@ function App() {
   const [aftercare, setAftercare] = useState("");
   const [leadDoctor, setLeadDoctor] = useState("");
   const [contacts, setContacts] = useState("");
+  const [additionalInfo, setAdditionalInfo] = useState("");
   return (
     <div className="App">
       <header className="App-header">
         <h1 >LMSG Reports</h1>
       </header>
-      <body>
-        <Form date={date} setDate={setDate} setSelectedDoctors={setSelectedDoctors} patient={patient} setPatient={setPatient} injuries={injuries} setInjuries={setInjuries} setDebrief={setDebrief} aftercare={aftercare} setAftercare={setAftercare} setLeadDoctor={setLeadDoctor} setContacts={setContacts}/>
-        <Output date={date} selectedDoctors={selectedDoctors} patient={patient} injuries={injuries} debrief={debrief} aftercare={aftercare} leadDoctor={leadDoctor} contacts={contacts}/>
-      </body>
+      <div className='content'>
+        <Form date={date} setDate={setDate} setSelectedDoctors={setSelectedDoctors} patient={patient} setPatient={setPatient} injuries={injuries} setInjuries={setInjuries} setDebrief={setDebrief} aftercare={aftercare} setAftercare={setAftercare} setLeadDoctor={setLeadDoctor} setContacts={setContacts} setAdditionalInfo={setAdditionalInfo}/>
+        <Output date={date} selectedDoctors={selectedDoctors} patient={patient} injuries={injuries} debrief={debrief} aftercare={aftercare} leadDoctor={leadDoctor} contacts={contacts} additionalInfo={additionalInfo}/>
+      </div>
     </div>
   );
 }
