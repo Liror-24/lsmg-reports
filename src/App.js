@@ -19,7 +19,7 @@ function getRandomInt(max) {
 }
 
 function generatePatient() {
-    let n = getRandomInt(100);
+    let n = getRandomInt(250);
     if (n === 99) return {name: "Ricky Minton", id: 953};
     if (n === 98) return {name: "Kail Avile", id: 8855};
     if (n === 97) return {name: "Norman Bones", id: 666};
