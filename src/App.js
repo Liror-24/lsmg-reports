@@ -42,6 +42,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1 >LMSG Reports</h1>
+        <div className='note'>🗒️ Note: I'm aware many things can be improved and there's probably the occasional bug. Also, do NOT use mobile please, I'm too lazy
+        to make it look decent atm. I'll make small updates ever now and then but uni has to come first 🙃. Any ideas, bugs, feedback or ID's to add to the
+        doctor database is welcome. You can send it through discord (Liror#2654), twitter (Liror24) or twitch (liror24) (that's the order on how quickly I'll see it, so twitch not best option) - Liror, the nerd 🐻💚</div>
       </header>
       <div className='content'>
         <Form date={date} setDate={setDate} setSelectedDoctors={setSelectedDoctors} patient={patient} setPatient={setPatient} injuries={injuries} setInjuries={setInjuries} setDebrief={setDebrief} aftercare={aftercare} setAftercare={setAftercare} setLeadDoctor={setLeadDoctor} setContacts={setContacts} setAdditionalInfo={setAdditionalInfo}/>
