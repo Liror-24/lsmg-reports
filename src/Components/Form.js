@@ -147,7 +147,7 @@ function Form(props) {
             {
                 localStorage.getItem("manuallyDocs") === "0" &&
                 <div>
-                    <FormItem title="Report written by" placeholder='Select one' type='select' array={doctorArray} onChange={handleSelectedLead} selectedValues={localStorage.getItem("leadDoctor") !== '' && [{name: localStorage.getItem("leadDoctorName"), fullData: localStorage.getItem("leadDoctor")}]}/>
+                    <FormItem title="Report written by" placeholder='Select one' type='select' array={doctorArray} onChange={handleSelectedLead} selectedValues={localStorage.getItem("leadDoctor") && localStorage.getItem("leadDoctor").length > 0 && [{name: localStorage.getItem("leadDoctorName"), fullData: localStorage.getItem("leadDoctor")}]}/>
                     <FormItem title="Other Dr.'s involved" placeholder='Select one' type='multiselect' array={doctorArray} onChange={handleSelectedDoctors}/>
                 </ div>
             }
