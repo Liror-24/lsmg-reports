@@ -38,6 +38,12 @@ function App() {
   const [leadDoctor, setLeadDoctor] = useState("");
   const [contacts, setContacts] = useState("");
   const [additionalInfo, setAdditionalInfo] = useState("");
+  const [leadPublic, setLeadPublic] = useState(localStorage.getItem("leadPublic") | "");
+  const [selectedPublic, setSelectedPublic] = useState("");
+  const [manually, setManually] = useState(localStorage.getItem("manuallyDocs"));
+
+  if(localStorage.getItem("manuallyDocs") !== "0" && localStorage.getItem("manuallyDocs") !== "1") localStorage.setItem("manuallyDocs", "0");
+
   return (
     <div className="App">
       <header className="App-header">
@@ -47,8 +53,8 @@ function App() {
         doctor database is welcome. You can send it through discord (Liror#2654), twitter (Liror24) or twitch (liror24) (that's the order on how quickly I'll see it, so twitch not best option) - Liror, the nerd 🐻💚</div>
       </header>
       <div className='content'>
-        <Form date={date} setDate={setDate} setSelectedDoctors={setSelectedDoctors} patient={patient} setPatient={setPatient} injuries={injuries} setInjuries={setInjuries} setDebrief={setDebrief} aftercare={aftercare} setAftercare={setAftercare} setLeadDoctor={setLeadDoctor} setContacts={setContacts} setAdditionalInfo={setAdditionalInfo}/>
-        <Output date={date} selectedDoctors={selectedDoctors} patient={patient} injuries={injuries} debrief={debrief} aftercare={aftercare} leadDoctor={leadDoctor} contacts={contacts} additionalInfo={additionalInfo}/>
+        <Form date={date} setDate={setDate} setSelectedDoctors={setSelectedDoctors} patient={patient} setPatient={setPatient} injuries={injuries} setInjuries={setInjuries} setDebrief={setDebrief} aftercare={aftercare} setAftercare={setAftercare} setLeadDoctor={setLeadDoctor} setContacts={setContacts} setAdditionalInfo={setAdditionalInfo} setLeadPublic={setLeadPublic} selectedPublic={selectedPublic} setSelectedPublic={setSelectedPublic} state={manually} setState={setManually}/>
+        <Output date={date} selectedDoctors={selectedDoctors} patient={patient} injuries={injuries} debrief={debrief} aftercare={aftercare} leadDoctor={leadDoctor} contacts={contacts} additionalInfo={additionalInfo} leadPublic={leadPublic} selectedPublic={selectedPublic} state={manually} setState={setManually}/>
       </div>
     </div>
   );

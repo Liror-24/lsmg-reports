@@ -9,16 +9,26 @@ function Output(props) {
                 <span>{props.patient.name} - ICU Report - {props.date}</span>
             </ div>
             <div className='boxOutput'>
-                <span>**Report written by:** {props.leadDoctor.length > 0 &&  <span>Dr. {props.leadDoctor}</span>}</span><br />
+                <span>**Report written by:** {props.state === "0" && props.leadDoctor.length > 0 && <span>Dr. {props.leadDoctor}</span>}
+                {props.state === "1" && props.leadPublic.length > 0 && <span>Dr. {props.leadPublic}</span>}</span><br />
                 <span>**Date of Report:** {props.date}</span><br />
                 <br />
                 <span>**Dr.'s involved**</span><br />
-                {props.leadDoctor.length > 0 && <span>Dr. {props.leadDoctor}</span>}<br />
+                {props.state === "0" && props.leadDoctor.length > 0 && <span>Dr. {props.leadDoctor}</span>}
+                {props.state === "1" && props.leadPublic.length > 0 && <span>Dr. {props.leadPublic}</span>}<br />
                 <span>{
+                    props.state === "0" &&
                     (props.selectedDoctors).map((item) => (
                         <span>Dr. {item}<br/></span>
                     ))
-                }</span>
+                }
+                {
+                    props.state === "1" && props.selectedPublic.length > 0 &&
+                    (props.selectedPublic.split(`\n`)).map((item) => (
+                        <span>{item}<br/></span>
+                    ))
+                }
+                </span>
                 <br />
                 <span>**Patient Name - State ID:** {props.patient.name} - {props.patient.id}</span><br /><br />
                 { (props.injuries !== "") && <span>**List of Injuries/ailments:**<br /></span>}

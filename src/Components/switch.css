@@ -1,0 +1,35 @@
+.switchBackground {
+    width: 60px;
+    height: 25px;
+    /*background: #888;*/
+    border-radius: 20px;
+    position: relative;
+    transition: background-color 0.5s;
+}
+
+.background-off {
+    background-color: #888;
+}
+
+.background-on {
+    background-color: #086F63;
+}
+
+.switch {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: 2.5px;
+    /*left: 2.5px;*/
+    transition: left 0.5s;
+}
+
+.switch-off {
+    left: 5px;
+}
+
+.switch-on {
+    left: 35px;
+}

@@ -2,6 +2,7 @@ import './shared.css';
 import './Form.css';
 import { Multiselect } from "multiselect-react-dropdown";
 import data from '../data/doctorsDB.json';
+import Switch from './Switch';
 
 const multiselectStyle = {
     inputField: {
@@ -26,7 +27,7 @@ function FormItem(props) {
             }
             {
                 (props.type === 'select') &&
-                <Multiselect options={props.array} displayValue="fullData" selectionLimit="1" onSelect={props.onChange} onRemove={props.onChange}
+                <Multiselect options={props.array} displayValue="fullData" selectedValues={props.selectedValues} selectionLimit="1" onSelect={props.onChange} onRemove={props.onChange}
                 style={multiselectStyle}/>
             }
             {
@@ -51,7 +52,6 @@ function FormItem(props) {
                 (props.type === 'textarea') &&
                 <textarea placeholder={props.placeholder} defaultValue={props.defaultValue} onChange={props.onChange} style={{minHeight: `${props.height}`}}/>
             }
-           
         </div>
     )
 }
@@ -71,6 +71,14 @@ function Form(props) {
     };
     const handleSelectedLead = (item) => {
         props.setLeadDoctor(item.map((el) => el.name));
+        if (item.length > 0) {
+            localStorage.setItem("leadDoctor", item[0].fullData);
+            localStorage.setItem("leadDoctorName", item[0].name);
+        }
+        else {
+            localStorage.setItem("leadDoctor", '');
+            localStorage.setItem("leadDoctorName", '');
+        }
     };
     const handleSelectedDoctors = (item) => {
         props.setSelectedDoctors(item.map((el) => el.name));
@@ -114,12 +122,42 @@ function Form(props) {
     const handleAdditionalInfo = (event) => {
         props.setAdditionalInfo(event.target.value);
     };
+    const handleSelectedLeadPublic = (event) => {
+        props.setLeadPublic(event.target.value);
+        localStorage.setItem("leadPublic", event.target.value);
+    };
+    const handleSelectedPublic = (event) => {
+        if (props.selectedPublic === "") {
+            event.target.value = `\u2022 Dr. ` + event.target.value;
+        }
+        else if (event.target.value[event.target.value.length - 1] === `\n`) {
+            event.target.value +=  `\u2022 Dr. `;
+        }
+        else if (event.target.value[event.target.value.length - 1] === `\u2022`) {
+            event.target.value = event.target.value.substring(0,event.target.value.length-1);
+        }
+        props.setSelectedPublic(event.target.value);
+    }
+
     return (
         <div className="Wrapper">
             <h3>Write Report</h3>
+            <span className='boxTitle' style={{display: "flex"}}><span style={{marginRight: "10px"}}>Enter doctor names manually? </span><Switch state={props.state} setState={props.setState}/></span>
             <FormItem title='Report Date' defaultValue={props.date} type='text' onChange={handleDate}/>
-            <FormItem title="Report written by" placeholder='Select one' type='select' array={doctorArray} onChange={handleSelectedLead}/>
-            <FormItem title="Other Dr.'s involved" placeholder='Select one' type='multiselect' array={doctorArray} onChange={handleSelectedDoctors}/>
+            {
+                localStorage.getItem("manuallyDocs") === "0" &&
+                <div>
+                    <FormItem title="Report written by" placeholder='Select one' type='select' array={doctorArray} onChange={handleSelectedLead} selectedValues={localStorage.getItem("leadDoctor") !== '' && [{name: localStorage.getItem("leadDoctorName"), fullData: localStorage.getItem("leadDoctor")}]}/>
+                    <FormItem title="Other Dr.'s involved" placeholder='Select one' type='multiselect' array={doctorArray} onChange={handleSelectedDoctors}/>
+                </ div>
+            }
+            {
+                localStorage.getItem("manuallyDocs") === "1" &&
+                <div>
+                    <FormItem title="Report written by" placeholder='Person Person (totally legit person name)' type='text' defaultValue={localStorage.getItem("leadPublic")} onChange={handleSelectedLeadPublic}/>
+                    <FormItem title="Other Dr.'s involved" placeholder={`\u2022 Dr. Name Name`} type='textarea' onChange={handleSelectedPublic} height='16px'/>
+                </ div>
+            }
             <FormItem title="Patient" placeholder={props.patient} type='double-text' onChangeName={handlePatientName} onChangeID={handlePatientID}/>
             <FormItem title='List of Injuries/ailments' placeholder={`\u2022 Injury`} type='textarea' onChange={handleInjuries} height='44px'/>
             <FormItem title='Debrief' placeholder='Debrief' type='textarea' onChange={handleDebrief} height='200px'/>
