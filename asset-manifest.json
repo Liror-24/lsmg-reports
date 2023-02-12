@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/lsmg-reports/static/css/main.20407abe.css",
-    "main.js": "/lsmg-reports/static/js/main.e1cbc205.js",
+    "main.js": "/lsmg-reports/static/js/main.137d616f.js",
     "static/js/787.24414626.chunk.js": "/lsmg-reports/static/js/787.24414626.chunk.js",
     "index.html": "/lsmg-reports/index.html",
     "main.20407abe.css.map": "/lsmg-reports/static/css/main.20407abe.css.map",
-    "main.e1cbc205.js.map": "/lsmg-reports/static/js/main.e1cbc205.js.map",
+    "main.137d616f.js.map": "/lsmg-reports/static/js/main.137d616f.js.map",
     "787.24414626.chunk.js.map": "/lsmg-reports/static/js/787.24414626.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.20407abe.css",
-    "static/js/main.e1cbc205.js"
+    "static/js/main.137d616f.js"
   ]
 }
