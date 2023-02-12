@@ -140,11 +140,6 @@
         "stateId": 12539
     },
     {
-        "id": 29,
-        "name": "Hana James",
-        "stateId": 37066
-    },
-    {
         "id": 30,
         "name": "Hector van Buren",
         "stateId": -1
@@ -195,6 +190,21 @@
         "stateId": -1
     },
     {
+        "id": 57,
+        "name": "Alyx Hakim",
+        "stateId": -1
+    },
+    {
+        "id": 58,
+        "name": "Brooklyn Quincy",
+        "stateId": -1
+    },
+    {
+        "id": 61,
+        "name": "Carlos Velazques",
+        "stateId": -1
+    },
+    {
         "id": 40,
         "name": "Casimir Pulaski",
         "stateId": -1
@@ -215,6 +225,11 @@
         "stateId": 40170
     },
     {
+        "id": 62,
+        "name": "Emerson Laurier",
+        "stateId": -1
+    },
+    {
         "id": 44,
         "name": "Giles Dickinbottom",
         "stateId": -1
@@ -227,6 +242,11 @@
     {
         "id": 46,
         "name": "KC Talbott",
+        "stateId": -1
+    },
+    {
+        "id": 59,
+        "name": "Levy Martinez",
         "stateId": -1
     },
     {
@@ -272,6 +292,11 @@
     {
         "id": 55,
         "name": "Suriel Roanoke",
+        "stateId": -1
+    },
+    {
+        "id": 60,
+        "name": "Tommy Tribble",
         "stateId": -1
     },
     {
